@@ -13,22 +13,20 @@ int     ft_open_or_close(char c)
                 return (OPEN);
         else if (c == ')' || c == '}' || c == ']')
                 return (CLOSE);
-        return (-1);
+        return (ERROR);
 }
 
 bool isValid(char* s)
 {
         int     i;
         int     j;
-	char	stack[1000];
+	char	stack[100000];
 
         i = 0;
 	j = 0;
         while (s[i])
         {
-        	if (!ft_open_or_close(s[i]) || ft_open_or_close(s[i]) == -1)
-                	return (false);
-		while (ft_open_or_close(s[i]) == 1)
+		if (ft_open_or_close(s[i]) == OPEN)
 		{	
 			if (s[i] == '(')
 				stack[j] = ')';
@@ -36,25 +34,20 @@ bool isValid(char* s)
 				stack[j] = '}';
 			else if (s[i] == '[')
 				stack[j] = ']';
-			i++;
 			j++;
 		}
-		stack[j] = '\0';
-		if (ft_open_or_close(s[i]) != 0)
-			return (false);
-		j--;
-		while (ft_open_or_close(s[i]) == 0 && j >= 0)
+		else if (ft_open_or_close(s[i]) == CLOSE)
 		{
-			if (s[i] != stack[j])
+			if (j == 0 || s[i] != stack[j - 1])
 				return (false);
-			stack[j] = '\0';
-			i++;
 			j--;
 		}
-		if (j > -1 && stack[j] != '\0')
+		else if (ft_open_or_close(s[i]) == ERROR)
 			return (false);
-		j = 0;
+		i++;
         }
+	if (j > 0)
+		return (false);
         return (true);
 }
 
