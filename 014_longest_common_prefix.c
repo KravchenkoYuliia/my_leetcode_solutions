@@ -51,25 +51,23 @@ char* longestCommonPrefix(char** strs, int strsSize)
         result = calloc(shortest_len + 1, sizeof(char));
         if (!result)
                 return (NULL);
-        while (i <= shortest_len && strs[word] && strs[word][i])
-        {
-                while (word < strsSize && strs[word] && strs[word + 1])
-                {
-			printf("compare word %s with %s\ni = %d\nchar %c with char %c\n", strs[word], strs[word + 1], i, strs[word][i], strs[word+1][i]);
-                        if (strs[word][i] == strs[word + 1][i])
-			{
-				word++;
-				printf("if they re the same - next word, so compaer %s with %s\n", strs[word], strs[word + 1]);
-			}
-                        else
+	if (strsSize == 1)
+		return (strs[0]);
+	while (i < shortest_len)
+	{
+		word = 0;
+		while (word < strsSize - 1)
+		{
+			if (strs[word][i] != strs[word + 1][i])
 			{
 				ft_copy(result, strs[0], i);
-                                return (result);
+				return (result);
 			}
-                        word++;
-                }
-                i++;
-        }
+			word++;
+		}
+		i++;
+	}
+	ft_copy(result, strs[0], i);
         return (result);
 }
 
