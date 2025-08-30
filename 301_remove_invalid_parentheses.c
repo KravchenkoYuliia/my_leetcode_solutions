@@ -1,6 +1,3 @@
-/**
- * Note: The returned array must be malloced, assume caller calls free().
- */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -55,16 +52,6 @@ int	ft_nb_of_useless_par(char *s, t_par *par)
 
 
 
-/*
-if '('----> TAKE always open+1
-      ----> NO only if rm_open > 0 rm_open-1
- 
-if ')'----> TAKE only if open > 0 open-1
-      ----> NO only if rm_close > 0 rm_close-1
-
-
-
-   */
 void	get_solution(char *s, int index, int solution[], int open, int rm_o, int rm_cl, int len)
 {
 	if (index == len) //end, printing the result
@@ -130,3 +117,29 @@ int	main(int ac, char **av)
 	
 	removeInvalidParentheses(av[1]);
 }
+
+
+/*
+ Using backtracking with recursion
+ ---------------------------------
+
+	1. Count the number of invalid open and close paretheses
+	2. Parsing the string character by character and deciding to keep it or no or both
+	 
+	'(' →→→→→ always TAKE (then recursion with open+1)
+	↓ 
+	↓
+	↓
+	NO only if need_to_rm_open > 0 
+	(then recursion with 
+		need_to_rm_open-1)
+	 
+					')'→→→→→ TAKE only if open > 0 (then recursion with open-1)
+					↓
+					↓
+					↓
+					NO only if need_to_rm_close > 0 (then recursion with 
+						need_to_rm_close-1)
+
+	3. Put every solution to array char** checking the doublicates
+*/
