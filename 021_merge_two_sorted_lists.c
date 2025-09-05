@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+//typedef struct ListNode t_list;
+
 typedef struct ListNode {
 
 	int		val;
@@ -9,7 +11,17 @@ typedef struct ListNode {
 
 } t_list;
 
+void	ft_print_lst(t_list* list)
+{
+	t_list*	temp = list;
 
+	while (temp)
+	{
+		printf("%d ", temp->val);
+		temp = temp->next;
+	}
+	printf("\n");
+}
 
 t_list*	ft_lstnew(int content)
 {
@@ -44,47 +56,80 @@ void	ft_lst_addback(t_list** list, t_list* new)
 		last->next = new;
 }
 
-void	ft_print_lst(t_list* list)
-{
-	t_list*	temp = list;
-
-	while (temp)
-	{
-		printf("%d ", temp->val);
-		temp = temp->next;
-	}
-	printf("\n");
-}
 
 t_list* mergeTwoLists(t_list* list1, t_list* list2)
 {
-	ft_print_lst(list1);
-	ft_print_lst(list2);
+	t_list*	new = NULL;
+	t_list*	result = NULL;
 
-	return NULL;
+	while (list1 && list2)
+	{
+		if (list1->val > list2->val)
+		{
+			new = ft_lstnew(list2->val);
+			list2 = list2->next;
+		}
+		else
+		{
+			new = ft_lstnew(list1->val);
+			list1 = list1->next;
+		}
+		ft_lst_addback(&result, new);
+	}
+	while (list1)
+	{
+		new = ft_lstnew(list1->val);
+		ft_lst_addback(&result, new);
+		list1 = list1->next;
+	}
+	while (list2)
+	{
+		new = ft_lstnew(list2->val);
+		ft_lst_addback(&result, new);
+		list2 = list2->next;
+	}
+	return result;
 }
+
+//format ./exec 123 456
+//first list  1-2-3
+//second list 4-5-6
 
 int	main(int ac, char** av)
 {
 	int	i = 0;
+	int	arg = 1;
+	char	temp;
+
 	t_list*	l1 = NULL;
 	t_list*	l2 = NULL;
+	t_list*	new = NULL;
 
-	t_list* new = ft_lstnew(4);
-	ft_lst_addback(&l1, new);
-	new = ft_lstnew(6);
-	ft_lst_addback(&l1, new);
-	new = ft_lstnew(10);
-	ft_lst_addback(&l1, new);
-	
+	if (ac < 3)
+		return 1;
+	while (arg < 3)
+	{
+		i = 0;
+		while (av[arg][i])
+		{
+			temp = av[arg][i+1];
+			av[arg][i+1] = '\0';
+			new = ft_lstnew(atoi(&av[arg][i]));
+			if (arg == 1)
+				ft_lst_addback(&l1, new);
+			else if (arg == 2)
+				ft_lst_addback(&l2, new);
+			av[arg][i+1] = temp;
+			i++;
+		}
+		arg++;
+	}
 
-	new = ft_lstnew(1);
-	ft_lst_addback(&l2, new);
-	new = ft_lstnew(2);
-	ft_lst_addback(&l2, new);
-	new = ft_lstnew(3);
-	ft_lst_addback(&l2, new);
+	printf("before merge: \n");
+	ft_print_lst(l1);
+	ft_print_lst(l2);
+	t_list* result = mergeTwoLists(l1, l2);
 
-
-	mergeTwoLists(l1, l2);
+	printf("\nafter merge: \n");
+	ft_print_lst(result);
 }

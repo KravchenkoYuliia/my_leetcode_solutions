@@ -6,4 +6,5 @@
 | 5 | [Roman to Integer](https://leetcode.com/problems/roman-to-integer/)                    | [C](013_roman_to_integer.c)                   | Easy       | Hash Table, Math, String                  |
 | 6 | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/)          | [C](014_longest_common_prefix.c)              | Easy       | Array, String, Trie                       |
 | 7 | [Length-Of-Last-Word](https://leetcode.com/problems/length-of-last-word/)              | [C](058_length_of_last_word.c)                | Easy       | String                                    |
-| 8 | [Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses/)| [C](301_remove_invalid_parentheses.c)         | Hard       | String, Backtracking, Breadth-First Search|
+| 8 | [Merge-Two-Sorted-Lists](https://leetcode.com/problems/merge-two-sorted-lists/)        | [C](021_merge_two_sorted_lists.c)             | Easy       | Linked List                               |
+| 9 | [Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses/)| [C](301_remove_invalid_parentheses.c)         | Hard       | String, Backtracking, Breadth-First Search|
