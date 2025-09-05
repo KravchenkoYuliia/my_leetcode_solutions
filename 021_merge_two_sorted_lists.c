@@ -11,6 +11,30 @@ typedef struct ListNode {
 
 } t_list;
 
+//solution
+t_list* mergeTwoLists(t_list* list1, t_list* list2)
+{
+	if (!list1)
+		return list2;
+	if (!list2)
+		return list1;
+	while (list2)
+	{
+		if (list1->val < list2->val)
+		{
+			list1->next = mergeTwoLists(list1->next, list2);
+			return list1;
+		}
+		else
+		{
+			list2->next = mergeTwoLists(list1, list2->next);
+			return list2;
+		}
+	}
+	return NULL;
+}
+
+//test
 void	ft_print_lst(t_list* list)
 {
 	t_list*	temp = list;
@@ -57,41 +81,8 @@ void	ft_lst_addback(t_list** list, t_list* new)
 }
 
 
-t_list* mergeTwoLists(t_list* list1, t_list* list2)
-{
-	t_list*	new = NULL;
-	t_list*	result = NULL;
 
-	while (list1 && list2)
-	{
-		if (list1->val > list2->val)
-		{
-			new = ft_lstnew(list2->val);
-			list2 = list2->next;
-		}
-		else
-		{
-			new = ft_lstnew(list1->val);
-			list1 = list1->next;
-		}
-		ft_lst_addback(&result, new);
-	}
-	while (list1)
-	{
-		new = ft_lstnew(list1->val);
-		ft_lst_addback(&result, new);
-		list1 = list1->next;
-	}
-	while (list2)
-	{
-		new = ft_lstnew(list2->val);
-		ft_lst_addback(&result, new);
-		list2 = list2->next;
-	}
-	return result;
-}
-
-//format ./exec 123 456
+//format ./exec 123 456 only numbers less than 10 
 //first list  1-2-3
 //second list 4-5-6
 
