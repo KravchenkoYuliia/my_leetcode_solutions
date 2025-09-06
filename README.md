@@ -7,5 +7,6 @@
 | 6 | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/)          | [C](014_longest_common_prefix.c)              | Easy       | Array, String, Trie                       |
 | 7 | [Length Of Last Word](https://leetcode.com/problems/length-of-last-word/)              | [C](058_length_of_last_word.c)                | Easy       | String                                    |
 | 8 | [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)        | [C](021_merge_two_sorted_lists.c)             | Easy       | Linked List, Recursion                    |
-| 9 | [Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses/)| [C](301_remove_invalid_parentheses.c)         | Hard       | String, Backtracking, Breadth-First Search|
-| 10| [Remove Duplicates From Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)| [C](026_remove_duplicates_from_sorted_array.c)| Easy       | Array, Two Pointers     |
+| 9 | [Remove Duplicates From Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)| [C](026_remove_duplicates_from_sorted_array.c)| Easy       | Array, Two Pointers     |
+| 10| [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)                      | [C](002_add_two_numbers.c)(working on ...)                    | Medium     | Linked List, Math, Recursion              |
+| 11| [Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses/)| [C](301_remove_invalid_parentheses.c)         | Hard       | String, Backtracking, Breadth-First Search|
