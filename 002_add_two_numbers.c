@@ -2,6 +2,9 @@
 #include <stdlib.h>
 
 typedef struct ListNode t_list;
+t_list*	ft_lstnew(int content);
+void	ft_lst_addback(t_list** list, t_list* new);
+t_list*	ft_lstlast(t_list* list);
 
 typedef struct ListNode {
 
@@ -16,6 +19,7 @@ t_list*	ft_addition(t_list* l1, t_list* l2, int remain, t_list* result)
 	int	val1 = 0;
 	int	val2 = 0;
 	int	val_final = 0;
+	t_list*	new = NULL;
 
 	if (!l1 && !l2 && !remain)
 		return NULL;
@@ -37,15 +41,24 @@ t_list*	ft_addition(t_list* l1, t_list* l2, int remain, t_list* result)
 	{
 		l1->val = val_final % 10;
 		result = l1;
+		if (l2)
+			result->next = ft_addition(l1->next, l2->next, remain, result->next);
+		else
+			result->next = ft_addition(l1->next, NULL, remain, result->next);
 	}
 	else if (l2)
 	{
 		l2->val = val_final % 10;
 		result = l2;
+		result->next = ft_addition(NULL, l2->next, remain, result->next);
+	}
+	else if (!l1 && !l2)
+	{
+		new = ft_lstnew(val_final % 10);
+		ft_lst_addback(&result, new);
+		result->next = ft_addition(NULL, NULL, remain, result->next);
 	}
 
-	if (l1 && l2)
-		result->next = ft_addition(l1->next, l2->next, remain, result->next);
 	return result;
 }
 
