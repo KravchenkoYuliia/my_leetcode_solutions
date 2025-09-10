@@ -9,6 +9,7 @@
 | 8 | [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)        | [C](021_merge_two_sorted_lists.c)             | Easy       | Linked List, Recursion                    |
 | 9 | [Remove Duplicates From Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)| [C](026_remove_duplicates_from_sorted_array.c)| Easy       | Array, Two Pointers     |
 | 10| [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)                      | [C](002_add_two_numbers.c)                    | Medium     | Linked List, Math, Recursion              |
-| 11| [Longest Substring](https://leetcode.com/problems/longest-substring-without-repeating-characters/description/)| [C](003_longest_substring_without_repeating_char.c)| Medium| Hash Table, String, Sliding Window|
-| 12| [Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses/)| [C](301_remove_invalid_parentheses.c)         | Hard       | String, Backtracking, Breadth-First Search|
-| 13| [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)| [C](004_median_of_two_sorted_arrays.c)      | Hard       | Array, Binary Search, Divide and Conquer  |
+| 11| [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)| [C](005_longest_palindromic_substring.c)| Medium     | Two Pointers, String, Dynamic Programming |
+| 12| [Longest Substring](https://leetcode.com/problems/longest-substring-without-repeating-characters/description/)| [C](003_longest_substring_without_repeating_char.c)| Medium| Hash Table, String, Sliding Window|
+| 13| [Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses/)| [C](301_remove_invalid_parentheses.c)         | Hard       | String, Backtracking, Breadth-First Search|
+| 14| [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)| [C](004_median_of_two_sorted_arrays.c)      | Hard       | Array, Binary Search, Divide and Conquer  |
