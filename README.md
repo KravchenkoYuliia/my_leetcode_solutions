@@ -1,4 +1,12 @@
-| # | Title                                                                                  |             Solution                          | Difficulty | Topics                                    |
+![To test](https://img.shields.io/badge/To_test-06d6a0?style=for-the-badge)
+
+
+```
+Compile: cc name_of_file.c
+Execute: ./a.out arguments if needed by main
+```
+
+| # |![Title](https://img.shields.io/badge/Title-0aebff?style=for-the-badge)|![Solution](https://img.shields.io/badge/Solution-0aebff?style=for-the-badge)|![Difficulty](https://img.shields.io/badge/Difficulty-0aebff?style=for-the-badge)|![Topics](https://img.shields.io/badge/Topics-0aebff?style=for-the-badge)|
 | - | -------------------------------------------------------------------------------------- | --------------------------------------------- | ---------- | ----------------------------------------- |
 | 1 | [Two Sum](https://leetcode.com/problems/two-sum/)                                      | [C](001_two_sum.c)                            | Easy       | Array, Hash Table	                      |
 | 2 | [Palindrome Number](https://leetcode.com/problems/palindrome-number/)                  | [C](009_palindrome_number.c)                  | Easy       | Math                                      |
