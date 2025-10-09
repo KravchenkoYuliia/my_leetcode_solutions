@@ -2,32 +2,146 @@
 #include <stdlib.h>
 #include <string.h>
 
-char*	ft_convert(char* s, int numRows)
+typedef struct s_data {
+
+	char*	src;
+	int	len;
+	int	nb_of_rows;
+	int	nb_of_middle_rows;
+	int	start_of_middle_line;
+	char*	result;
+	int	i_result;
+
+}	t_data;
+
+void	ft_copy_last_line_of_zigzag(t_data* data)
+{
+	int	i = data->nb_of_rows - 1;
+	int	pattern = data->nb_of_rows* 2 - 2;
+
+	while (data->src[i])
+	{
+		data->result[data->i_result] = data->src[i];
+		if (i + pattern  < data->len && data->src[i + pattern])
+			i = i + pattern;
+		else
+		{
+			data->i_result++;
+			data->result[data->i_result] = '\0';
+			return ;
+		}
+		data->i_result++;
+	}
+
+}
+
+void	ft_copy_middle_lines_of_zigzag(t_data* data)
+{
+	int	i;
+	int	line = 0;
+	int	count_char_in_middle_line = 0;
+	int	pattern = 0;
+	int	pattern_a = data->nb_of_rows * 2 - 4;
+	int	pattern_b = 2;
+
+	while (line < data->nb_of_middle_rows)
+	{
+		i = 0;
+		i = data->start_of_middle_line;
+		while (data->src[i])
+		{
+			data->result[data->i_result] = data->src[i];
+			if (count_char_in_middle_line % 2 == 0)
+				pattern = pattern_a;
+			else
+				pattern = pattern_b;
+
+			if (i + pattern < data->len && data->src[i + pattern])
+				i = i + pattern;
+			else
+			{
+				data->i_result++;
+				data->result[data->i_result] = '\0';
+				break ;
+			}
+			count_char_in_middle_line++;
+			data->i_result++;
+		}
+		pattern_a -= 2;
+		pattern_b += 2;
+		data->start_of_middle_line++;
+		line++;
+	}
+}
+
+void	ft_copy_first_line_of_zigzag(t_data* data)
 {
 	int	i = 0;
-	int	j = 1;
-	int     pattern;
-	char*	result;
-       
-	result	= calloc(strlen(s) + 1, sizeof(char));
-	if (!result)
-		return NULL;
+	int	pattern = data->nb_of_rows* 2 - 2;
 
-	pattern = numRows * 2 - 2; // pattern for the first and the last line of zigzag
-	
-	result[0] = s[0];
-	while (i < 3)
+	while (data->src[i])
 	{
-		result[i+1] = s[i+pattern];
-		i++;
+		data->result[data->i_result] = data->src[i];
+		if (i + pattern  < data->len && data->src[i + pattern])
+			i = i + pattern;
+		else
+		{
+			data->i_result++;
+			data->result[data->i_result] = '\0';
+			return ;
+		}
+		data->i_result++;
 	}
-	return result;
 }
+
+void	ft_convert_even_rows(t_data* data)
+{
+	ft_copy_first_line_of_zigzag(data);
+	ft_copy_middle_lines_of_zigzag(data);
+	ft_copy_last_line_of_zigzag(data);
+}
+
+void	ft_convert_odd_rows(t_data* data)
+{
+	ft_copy_first_line_of_zigzag(data);
+	//ft_copy_middle_lines_of_zigzag_odd(data);
+	ft_copy_last_line_of_zigzag(data);
+}
+
+char*	convert(char* s, int numRows)
+{
+	t_data	data;
+
+	data.src = s;
+	data.len = strlen(s);
+	data.nb_of_rows = numRows;
+	data.nb_of_middle_rows = data.nb_of_rows - 2;
+	data.start_of_middle_line = 1;
+	data.i_result = 0;
+	data.result = calloc(data.len + 1, sizeof(char));
+	if (!data.result)
+		return NULL;
+	
+	if (numRows % 2 == 0)
+		ft_convert_even_rows(&data);
+	else
+		ft_convert_odd_rows(&data);
+	
+	return data.result;
+}
+
+
+/*
+  give 2 parameters to the program
+	1: string to convert
+	2: number of rows in zigzag
+ */
 
 int	main(int ac, char** av)
 {
 	if (ac != 3)
 		return 1;
-	char* result = ft_convert(av[1], atoi(av[2]));
+	char* result = convert(av[1], atoi(av[2]));
 	printf("%s\n", result);
+	free(result);
 }
