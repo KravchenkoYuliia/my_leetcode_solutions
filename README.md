@@ -23,7 +23,7 @@ Execute: ./a.out arguments if needed by main
 | 12| [Reverse Integer](https://leetcode.com/problems/reverse-integer/)                      | [C](007_reverse_integer.c)                    | Medium     | Math                                      |
 | 13| [Longest Substring](https://leetcode.com/problems/longest-substring-without-repeating-characters/description/)| [C](003_longest_substring_without_repeating_char.c)| Medium| Hash Table, String, Sliding Window|
 | 14| [Maximal Square](https://leetcode.com/problems/maximal-square/)                        | [C](221_maximal_square.c)                     | Medium       | Array, Dynamic Programming, Matrix      |
-| 15| [Game of life](https://leetcode.com/problems/game-of-life/)                            | [C](289_game_of_life.c)                       | Medium       | Array, Matrix, Simulation               |
+| 15| [Game of life](https://leetcode.com/problems/game-of-life/)                            | [C](game_of_life/289_game_of_life.c)                       | Medium       | Array, Matrix, Simulation               |
 | - |                                                                                        |                                               |            |                                           |
 | 16| [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)| [C](004_median_of_two_sorted_arrays.c)      | Hard       | Array, Binary Search, Divide and Conquer  |
 | 17| [Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses/)| [C](301_remove_invalid_parentheses.c)         | Hard       | String, Backtracking, Breadth-First Search|
