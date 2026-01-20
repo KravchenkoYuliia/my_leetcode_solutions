@@ -17,17 +17,18 @@ using namespace std;
 class Solution {
 public:
 
-	void	swap_with_the_last_elem( vector<int>& nums, int i, int vector_size, int& result ) {
+	void	swap_with_the_last_elem( vector<int>& nums, int i, int& vector_size, int& result ) {
 
+
+		while ( vector_size > 0 && nums[vector_size - 1] == nums[i] )
+			vector_size--;
 		int	last_i = vector_size - 1;
-
-		while ( last_i > 0 && last_i != i && nums[last_i] == nums[i] )
-			last_i--;
 		if ( last_i == i )
 			return ;
 		if ( i < vector_size && last_i < vector_size ) {
 
 			swap( nums[i], nums[last_i] );
+			vector_size -= 1;
 			result += 1;
 		}
 	}
