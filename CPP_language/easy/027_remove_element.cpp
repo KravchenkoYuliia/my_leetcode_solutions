@@ -6,7 +6,7 @@
 /*   By: yukravch <yukravch@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 14:08:17 by yukravch          #+#    #+#             */
-/*   Updated: 2026/01/20 15:07:48 by yukravch         ###   ########.fr       */
+/*   Updated: 2026/01/20 15:48:47 by yukravch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ using namespace std;
 class Solution {
 public:
 
-	void	swap_with_the_last_elem( vector<int>& nums, int i, int vector_size ) {
+	void	swap_with_the_last_elem( vector<int>& nums, int i, int vector_size, int& result ) {
 
 		int	last_i = vector_size - 1;
 
@@ -25,29 +25,27 @@ public:
 			last_i--;
 		if ( last_i == i )
 			return ;
-		if ( i < vector_size && last_i < vector_size )
+		if ( i < vector_size && last_i < vector_size ) {
+
 			swap( nums[i], nums[last_i] );
+			result += 1;
+		}
 	}
 
 	int	removeElement(vector<int>& nums, int val) {
 
-	    int	vector_size = nums.size();
+		int	result  = 0;
+	    	int	vector_size = nums.size();
+
 	    for ( int i = 0; i < vector_size; i++ ) {
 		    
 		    if ( nums[i] == val ) {
-			    swap_with_the_last_elem( nums, i, vector_size );
+			    swap_with_the_last_elem( nums, i, vector_size, result );
 		    }
+		    else
+			    result += 1;
 	    }
-
-		int result  = 0;
-	    	for ( int i = 0; i < vector_size; i++ ) {
-	
-			if ( nums[i] == val )
-				return result;
-			result += 1;
-		}
-
-	    return vector_size;
+	    return result;
     }
 };
 
