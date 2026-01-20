@@ -26,5 +26,5 @@ Execute: ./a.out arguments if needed by main
 | 15| [Maximal Square](https://leetcode.com/problems/maximal-square/)                        | [C](C_language/medium/221_maximal_square.c)                     | Medium       | Array, Dynamic Programming, Matrix      |
 | 16| [Game of life](https://leetcode.com/problems/game-of-life/)                            | [C](C_language/medium/289_game_of_life.c)                       | Medium       | Array, Matrix, Simulation               |
 | - |                                                                                        |                                               |            |                                           |
-| 16| [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)| [C](C_language/hard/004_median_of_two_sorted_arrays.c)      | Hard       | Array, Binary Search, Divide and Conquer  |
-| 17| [Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses/)| [C](C_language/hard/backtracking/301_remove_invalid_parentheses.c)         | Hard       | String, Backtracking, Breadth-First Search|
+| 17| [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)| [C](C_language/hard/004_median_of_two_sorted_arrays.c)      | Hard       | Array, Binary Search, Divide and Conquer  |
+| 18| [Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses/)| [C](C_language/hard/backtracking/301_remove_invalid_parentheses.c)         | Hard       | String, Backtracking, Breadth-First Search|
