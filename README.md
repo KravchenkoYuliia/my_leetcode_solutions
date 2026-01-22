@@ -2,7 +2,9 @@
 
 
 ```
-Compile: cc name_of_file.c
+Compile: cc name_of_file.c     for the file in C_language
+        c++ name_of_file.cpp   for the file in CPP_language
+
 Execute: ./a.out arguments if needed by main
 ```
 
@@ -26,7 +28,7 @@ Execute: ./a.out arguments if needed by main
 | 15| [Longest Substring](https://leetcode.com/problems/longest-substring-without-repeating-characters/description/)| [C](C_language/medium/003_longest_substring_without_repeating_char.c)| Medium| Hash Table, String, Sliding Window|
 | 16| [Maximal Square](https://leetcode.com/problems/maximal-square/)                        | [C](C_language/medium/221_maximal_square.c)                     | Medium       | Array, Dynamic Programming, Matrix      |
 | 17| [Game of life](https://leetcode.com/problems/game-of-life/)                            | [C](C_language/medium/289_game_of_life.c)                       | Medium       | Array, Matrix, Simulation               |
-| 18| [Network Delay Time](https://leetcode.com/problems/network-delay-time/)                            | [C++](CPP_language/medium/network_delay_time/743_network_delay_time.cpp)                       | Medium       |  Dijkstra's Algorithm, Depth-First Search, Breath-First Search, Graph Theory, Heap(Priority Queue), Shortest Path               |
+| 18| [Network Delay Time](https://leetcode.com/problems/network-delay-time/)                            | [C++](CPP_language/medium/network_delay_time/743_network_delay_time.cpp)  + [README](CPP_language/medium/network_delay_time/README.md)                      | Medium       |  Dijkstra's Algorithm, Depth-First Search, Breath-First Search, Graph Theory, Heap(Priority Queue), Shortest Path               |
 | - |                                                                                        |                                               |            |                                           |
 | 19| [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)| [C](C_language/hard/004_median_of_two_sorted_arrays.c)      | Hard       | Array, Binary Search, Divide and Conquer  |
 | 20| [Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses/)| [C](C_language/hard/backtracking/301_remove_invalid_parentheses.c)         | Hard       | String, Backtracking, Breadth-First Search|
