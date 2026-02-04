@@ -38,10 +38,11 @@ public:
 	
 	static bool	findKey( unordered_map< string, int >&	wordsHashTable, string& s ) {
 	
-		if ( wordsHashTable.find( s ) != wordsHashTable.end() &&
-			wordsHashTable[ s ] != 0 )
-				return true;
-		return false;
+		if ( wordsHashTable.find( s ) == wordsHashTable.end() )
+			return false;
+		if ( wordsHashTable[ s ] == 0 )
+				return false;
+		return true;
 	}
 
 	static void	printHash( unordered_map< string, int >& wordsHashTable ) {
@@ -71,6 +72,7 @@ public:
 		
 			int j = i;
 			while ( Solution::findKey( wordsHashTable, currentWord ) == true && j < s.size() ) {
+				
 				wordsHashTable[ currentWord ] -= 1;
 				j += wordLength;
 				currentWord = s.substr( j, wordLength );
@@ -91,8 +93,8 @@ public:
 
 int	main( void ) {
 
-	vector<string>	words = {"aa","aa","aa"};
-		vector<int>	result = Solution::findSubstring( "aaaaaa", words);
+	vector<string>	words = {"bar","foo","the"};
+		vector<int>	result = Solution::findSubstring( "barfoofoobarthefoobarman", words);
 
 	for ( auto i : result )
 		cout << i << ",";
