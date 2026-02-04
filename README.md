@@ -20,7 +20,7 @@ Execute: ./a.out arguments if needed by main
 | 8 | [Remove Duplicates From Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)| [C](C_language/easy/026_remove_duplicates_from_sorted_array.c)| Easy       | Array, Two Pointers     |
 | 9 | [Remove Element](https://leetcode.com/problems/remove-element/)| [C++](CPP_language/easy/027_remove_element.cpp)| Easy       | Array, Two Pointers     |
 | 10 | [Search Insert Position](https://leetcode.com/problems/search-insert-position/)| [C++](CPP_language/easy/035_search_insert_position.cpp)| Easy       | Array, Binary Search     |
-| 11 not finished | [Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii/)| [C++](CPP_language/easy/219_contains_duplicate_II.cpp)| Easy       | Array, Hash Table, Sliding Window     |
+| 11 | [Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii/)| [C++](CPP_language/easy/contains_diplicate_II/219_contains_duplicate_II.cpp)+[README](CPP_language/easy/contains_diplicate_II/README.md)| Easy       | Array, Hash Table, Sliding Window     |
 | - |                                                                                        |                                               |            |                                           |
 | 1 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)                      | [C](C_language/medium/002_add_two_numbers.c)                    | Medium     | Linked List, Math, Recursion              |
 | 2| [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)| [C](C_language/medium/005_longest_palindromic_substring.c)| Medium     | Two Pointers, String, Dynamic Programming |
