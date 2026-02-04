@@ -6,7 +6,7 @@
 /*   By: yukravch <yukravch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 09:26:22 by yukravch          #+#    #+#             */
-/*   Updated: 2026/02/04 13:25:21 by yukravch         ###   ########.fr       */
+/*   Updated: 2026/02/04 13:59:37 by yukravch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,19 +53,20 @@ public:
 	//MAIN FUNCTION
 	static vector<int>	findSubstring(string s, vector<string>& words) {
 
-		int temp = 1;
 		vector<int>	result;
 		int		start = 0;
 		int		wordLength = words[ 0 ].size();
 
+		int		sSize = s.size();
+		int		lengthAllWordsTogether = words.size() * wordLength;
+
 		unordered_map< string, int >	wordsHashTable;
 		wordsHashTable = Solution::fillWordsHashTable( words );
-		for ( int i = 0; i < s.size(); i++ ) {
+		for ( int i = 0; i < sSize; i++ ) {
 			
-			if ( s.size() - i < words.size() * wordLength )
+			if ( sSize - i < lengthAllWordsTogether )
 				return result;
 
-			cout << "temp: "<< temp<<endl;
 			string	currentWord = s.substr( i, wordLength );
 		
 			int j = i;
@@ -82,7 +83,6 @@ public:
 			
 			wordsHashTable = Solution::fillWordsHashTable( words );
 			start += 1;
-			temp++;
 		}
 
 		return result;
