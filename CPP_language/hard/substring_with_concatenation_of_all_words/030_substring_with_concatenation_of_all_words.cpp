@@ -76,12 +76,13 @@ public:
 				wordsHashTable[ currentWord ] -= 1;
 				j += wordLength;
 				currentWord = s.substr( j, wordLength );
+
+				if ( Solution::allWordsAreUsed( wordsHashTable ) == true ) {
+					result.push_back( start );
+					break ;
+				}
 			}
 			
-			if ( Solution::allWordsAreUsed( wordsHashTable ) == true ) {
-				result.push_back( start );
-	
-			}
 			
 			wordsHashTable = Solution::fillWordsHashTable( words );
 			start += 1;
