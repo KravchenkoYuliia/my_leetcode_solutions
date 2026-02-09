@@ -55,6 +55,10 @@ public:
 	static vector<int>	findSubstring(string s, vector<string>& words) {
 
 		vector<int>	result;
+		
+		if ( s == "" || words.empty() )
+			return result;
+		
 		int		start = 0;
 		int		wordLength = words[ 0 ].size();
 
@@ -62,16 +66,20 @@ public:
 		int		lengthAllWordsTogether = words.size() * wordLength;
 
 		unordered_map< string, int >	wordsHashTable;
-		wordsHashTable = Solution::fillWordsHashTable( words );
-		for ( int i = 0; i < sSize; i++ ) {
+		for ( auto w : words )
+			wordsHashTable[ w ]++;
+		//wordsHashTable = Solution::fillWordsHashTable( words );
+		for ( int i = 0; i < wordLength; i++ ) {
 			
+			unordered_map< string, int > window;
+			int left = 
 			if ( sSize - i < lengthAllWordsTogether )
 				return result;
 
 			string	currentWord = s.substr( i, wordLength );
 		
 			int j = i;
-			while ( Solution::findKey( wordsHashTable, currentWord ) == true && j < s.size() ) {
+			while ( Solution::findKey( wordsHashTable, currentWord ) == true && j < sSize ) {
 				
 				wordsHashTable[ currentWord ] -= 1;
 				j += wordLength;
