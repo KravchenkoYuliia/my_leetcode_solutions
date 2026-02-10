@@ -6,7 +6,7 @@
 /*   By: yukravch <yukravch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 09:26:22 by yukravch          #+#    #+#             */
-/*   Updated: 2026/02/04 13:59:37 by yukravch         ###   ########.fr       */
+/*   Updated: 2026/02/10 11:47:38 by yukravch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,32 +18,6 @@ using namespace std;
 
 class Solution {
 public:
-	static unordered_map< string, int > 	fillWordsHashTable( vector<string>& words ) {
-
-		unordered_map< string, int > newHash;
-		
-		for ( int i = 0; i < words.size(); i++ ) {
-
-			newHash[ words[ i ]] += 1;
-		}
-		return newHash;
-	}
-
-	static bool	allWordsAreUsed( unordered_map< string, int >&	wordsHashTable ) {
-
-		for ( auto key : wordsHashTable )
-			if ( key.second > 0 ) {  return false;  }
-		return true;
-	}
-	
-	static bool	findKey( unordered_map< string, int >&	wordsHashTable, string& s ) {
-	
-		if ( wordsHashTable.find( s ) == wordsHashTable.end() )
-			return false;
-		if ( wordsHashTable[ s ] == 0 )
-				return false;
-		return true;
-	}
 
 	static void	printHash( unordered_map< string, int >& wordsHashTable ) {
 
@@ -59,43 +33,50 @@ public:
 		if ( s == "" || words.empty() )
 			return result;
 		
-		int		start = 0;
 		int		wordLength = words[ 0 ].size();
 
 		int		sSize = s.size();
-		int		lengthAllWordsTogether = words.size() * wordLength;
+		int		howManyWords = words.size();
+		int		lengthAllWordsTogether = howManyWords * wordLength;
 
 		unordered_map< string, int >	wordsHashTable;
 		for ( auto w : words )
 			wordsHashTable[ w ]++;
-		//wordsHashTable = Solution::fillWordsHashTable( words );
-		for ( int i = 0; i < wordLength; i++ ) {
-			
-			unordered_map< string, int > window;
-			int left = 
-			if ( sSize - i < lengthAllWordsTogether )
-				return result;
-
-			string	currentWord = s.substr( i, wordLength );
 		
-			int j = i;
-			while ( Solution::findKey( wordsHashTable, currentWord ) == true && j < sSize ) {
-				
-				wordsHashTable[ currentWord ] -= 1;
-				j += wordLength;
-				currentWord = s.substr( j, wordLength );
 
-				if ( Solution::allWordsAreUsed( wordsHashTable ) == true ) {
-					result.push_back( start );
-					break ;
+		for ( int i = 0; i < wordLength; i++ ) {
+		
+			unordered_map< string, int >	window;
+			int				start = i;
+			int				countFoundWords = 0;
+
+			for ( int stop = i; stop + wordLength <= sSize; stop += wordLength ) {
+
+				string	currentWord = s.substr( stop, wordLength );
+
+				if ( wordsHashTable[ currentWord ] ) {
+
+					window[ currentWord ] += 1;
+					countFoundWords += 1;
+
+					while ( window[ currentWord ] > wordsHashTable[ currentWord ] ) {
+						//delete the from window that is the most on the left in s = first added word to window
+						window[ s.substr( start, wordLength ) ] -= 1;
+						countFoundWords -= 1;
+
+						start += wordLength;
+					}
+					
+					if ( countFoundWords == howManyWords )
+						result.push_back( start );
+				}
+				else {
+					window.clear();
+					countFoundWords = 0;
+					start = stop + wordLength;
 				}
 			}
-			
-			
-			wordsHashTable = Solution::fillWordsHashTable( words );
-			start += 1;
 		}
-
 		return result;
 	}
 };
