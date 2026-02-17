@@ -22,7 +22,7 @@ Execute: ./a.out arguments if needed by main
 | 10 | [35. Search Insert Position](https://leetcode.com/problems/search-insert-position/)| [C++](CPP_language/easy/035_search_insert_position.cpp)| Easy       | Array, Binary Search     |
 | 11 | [58. Length Of Last Word](https://leetcode.com/problems/length-of-last-word/)              | [C](C_language/easy/058_length_of_last_word.c)                | Easy       | String                                    |
 | 12 | [66. Plus One](https://leetcode.com/problems/plus-one/)              | [C++](CPP_language/easy/066_plus_one.cpp)                | Easy       | Array, Math                                     |
-| 13 | [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)              | [Python](Python/easy/070_climbing_stairs.py)
+| 13 | [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)              | [Python](Python/easy/070_climbing_stairs.py)| Easy      | Math, Dynamic Programming, Memoization  |
 | 14 | [219. Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii/)| [C++](CPP_language/easy/contains_diplicate_II/219_contains_duplicate_II.cpp) + [README](CPP_language/easy/contains_diplicate_II/README.md)| Easy       | Array, Hash Table, Sliding Window     |
 | - |                                                                                        |                                               |            |                                           |
 | 1 | [2. Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)                      | [C](C_language/medium/002_add_two_numbers.c)                    | Medium     | Linked List, Math, Recursion              |
