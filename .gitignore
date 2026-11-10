@@ -1,3 +1,9 @@
 *a.out
 *.swp
 *sys
+
+# Java compiled files
+*.class
+
+# macOS
+.DS_Store
