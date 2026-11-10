@@ -6,9 +6,9 @@ public class MergeSortedArray {
 		int	j = n - 1;
 		int	all = m + n - 1;
 
-		while ( i >= 0 && j >= 0 && all >= 0 ) {
+		while ( j >= 0 && all >= 0 ) {
 
-			if ( nums1[i] > nums2[j] ) {
+			if ( i >= 0 && nums1[i] > nums2[j] ) {
 				nums1[all] = nums1[i];
 				i--;
 			}
@@ -20,10 +20,5 @@ public class MergeSortedArray {
 
 		}
 
-		while ( j >= 0 && all >= 0 ) {
-				nums1[all] = nums2[j];
-				all--;
-				j--;
-		}
 	}
 }
